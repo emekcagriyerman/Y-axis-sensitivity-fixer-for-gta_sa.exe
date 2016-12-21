@@ -7,9 +7,9 @@ using namespace std;
 
 int main()
 {
-    PROCESSENTRY32 entry;
+    PROCESSENTRY32 entry; 	//struct that contains process information
     entry.dwSize = sizeof(PROCESSENTRY32);
-    HANDLE hProcess;
+    HANDLE hProcess;		//a void pointer that will be used to point the process later on
 
     HANDLE snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, NULL);
 
@@ -24,6 +24,7 @@ int main()
         }
     }
     float value;
+    /* memory address of x and y axis sensitivities */
     DWORD addr1 = 0xB6EC1C;
     DWORD addr2 = 0xB6EC1C-4;
 
