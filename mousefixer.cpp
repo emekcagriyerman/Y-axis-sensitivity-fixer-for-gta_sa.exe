@@ -11,7 +11,7 @@ int main()
     entry.dwSize = sizeof(PROCESSENTRY32);
     HANDLE hProcess;		//a void pointer that will be used to point the process later on
 
-    HANDLE snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, NULL);
+    HANDLE snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
 
     if (Process32First(snapshot, &entry) == TRUE)
     {
@@ -25,8 +25,8 @@ int main()
     }
     float value;
     /* memory address of x and y axis sensitivities */
-    DWORD addr1 = 0xB6EC1C;
-    DWORD addr2 = 0xB6EC1C-4;
+    long long addr1 = 0xB6EC1C;
+    long long addr2 = 0xB6EC1C-4;
 
 	ReadProcessMemory(hProcess, (void*)addr1, &value, sizeof(value), 0);
 	cout << "Sensitivity value is = " << value << endl;
