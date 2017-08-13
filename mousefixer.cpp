@@ -30,7 +30,7 @@ int main()
 
 	ReadProcessMemory(hProcess, (void*)addr1, &value, sizeof(value), 0);
 	cout << "Sensitivity value is = " << value << endl;
-	value = value*9/16;
+	value = value*9/16; //This is line is a customization, you might delete it.
 	WriteProcessMemory(hProcess, (void*)addr2, &value, sizeof(value), 0);
 	cout << "Written value to memory by your input = " << value << endl;
     CloseHandle(snapshot);
